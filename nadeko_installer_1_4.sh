@@ -30,12 +30,13 @@ cd "$root"
 echo ""
 echo "Downloading NadekoBot, please wait."
 git clone -b 1.4 --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
+cd $root/NadekoBot
+git reset --hard 8f844d38d3ad69f8463db7e981295335f35a2067
 echo ""
 echo "NadekoBot downloaded."
 
 echo ""
 echo "Downloading Nadeko dependencies"
-cd $root/NadekoBot
 dotnet restore
 echo ""
 echo "Download done"
