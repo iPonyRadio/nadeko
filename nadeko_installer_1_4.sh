@@ -23,6 +23,11 @@ else
     exit 1
 fi
 
+echo ""
+echo "Getting the Auto-Installer for Debian/Ubuntu"
+wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
+echo ""
+
 root=/opt
 
 cd "$root"
