@@ -36,7 +36,7 @@ echo ""
 echo "Downloading NadekoBot, please wait."
 git clone -b 1.4 --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
 cd $root/NadekoBot
-git reset --hard 8f844d38d3ad69f8463db7e981295335f35a2067
+git reset --hard 9d778de7f2804a8f3090ec515d63a79168ab9708
 echo ""
 echo "NadekoBot downloaded."
 
