@@ -25,7 +25,7 @@ fi
 
 echo ""
 echo "Getting the Auto-Installer for Debian/Ubuntu"
-wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
+wget -N https://raw.githubusercontent.com/iPonyRadio/nadeko/1.4/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
 echo ""
 
 root=/opt
