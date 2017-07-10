@@ -1,5 +1,5 @@
 yum-config-manager --add-repo http://www.nasm.us/nasm.repo 1>/dev/null
-yum install autoconf automake bzip2 cmake file freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig unzip zlib-devel -y 1>/dev/null
+yum install autoconf automake bzip2 cmake file freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig xmlto zlib-devel -y 1>/dev/null
 
 mkdir ~/ffmpeg_sources 1>/dev/null
 
@@ -92,7 +92,7 @@ echo #
 echo
 
 cd ~/ffmpeg_sources 1>/dev/null
-curl -O https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-1.3.2.zip 1>/dev/null
+curl -O https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-1.3.2.tar.gz 1>/dev/null
 tar xzvf libogg-1.3.2.tar.gz 1>/dev/null
 cd libogg-1.3.2 1>/dev/null
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared 1>/dev/null
