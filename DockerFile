@@ -1,14 +1,17 @@
-FROM buildpack-deps:stretch-scm
+FROM centos:latest
 MAINTAINER PixelPerfect <pixelperfectpon3@gmail.com>
 
 WORKDIR /opt/
 
-#Install required software
-RUN echo "deb http://www.deb-multimedia.org stable main non-free" | tee /etc/apt/sources.list.d/debian-backports.list \
-	&& apt-get update \
-	&& apt-get install -y --force-yes deb-multimedia-keyring \
-	&& apt-get update \
-	&& apt-get install -y git libopus0 opus-tools libopus-dev libsodium-dev ffmpeg
+#Install required software	
+RUN yum --obsoletes --exclude=kernel* update -y \
+	yum install sudo -y \
+	sudo yum install libunwind libicu -y \
+	curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019 \
+	sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet \
+	sudo ln -s /opt/dotnet/dotnet /usr/local/bin \
+	sudo yum install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release -y \
+	sudo yum install git opus opus-devel ffempeg tmux youtube-dl -y
 
 #Download and install stable version of Nadeko
 RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer_1_4.sh | sh \
