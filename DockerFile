@@ -11,7 +11,7 @@ RUN curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848821
 RUN sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 RUN sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 RUN sudo yum install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release -y
-RUN sudo yum install git opus opus-devel ffempeg tmux youtube-dl -y
+RUN sudo yum install git opus opus-devel ffmpeg tmux youtube-dl -y
 
 #Download and install stable version of Nadeko
 RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer_1_4.sh | sh \
