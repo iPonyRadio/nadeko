@@ -2,11 +2,6 @@
 echo ""
 echo "NadekoBot Installer started."
 
-echo ""
-echo "Getting the Auto-Installer for Debian/Ubuntu"
-wget -N https://raw.githubusercontent.com/iPonyRadio/nadeko/1.4/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
-echo ""
-
 if hash git 1>/dev/null 2>&1
 then
     echo ""
