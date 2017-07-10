@@ -11,7 +11,87 @@ RUN curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848821
 RUN sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 RUN sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 RUN sudo yum install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release -y
-RUN sudo yum install git opus opus-devel ffmpeg tmux youtube-dl -y
+RUN sudo yum install git opus opus-devel tmux youtube-dl -y
+
+#Install ffmpeg
+RUN yum-config-manager --add-repo http://www.nasm.us/nasm.repo
+RUN yum install autoconf automake bzip2 cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel
+RUN mkdir ~/ffmpeg_sources
+RUN cd ~/ffmpeg_sources
+RUN curl -O http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+RUN tar xzvf yasm-1.3.0.tar.gz
+RUN cd yasm-1.3.0
+RUN ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+RUN make
+RUN make install
+RUN cd ~/ffmpeg_sources
+RUN git clone --depth 1 http://git.videolan.org/git/x264
+RUN cd x264
+RUN PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
+RUN make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN hg clone https://bitbucket.org/multicoreware/x265
+RUN cd ~/ffmpeg_sources/x265/build/linux
+RUN cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+RUN make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN git clone --depth 1 https://github.com/mstorsjo/fdk-aac
+RUN cd fdk-aac
+RUN autoreconf -fiv
+RUN ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+RUN make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN curl -L -O http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+RUN tar xzvf lame-3.99.5.tar.gz
+RUN cd lame-3.99.5
+RUN ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --disable-shared --enable-nasm
+RUN make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN curl -O https://archive.mozilla.org/pub/opus/opus-1.1.5.tar.gz
+RUN tar xzvf opus-1.1.5.tar.gz
+RUN cd opus-1.1.5
+RUN ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+RUN make
+RUN make install
+RUN cd ~/ffmpeg_sources
+RUN curl -O http://downloads.xiph.org/releases/ogg/libogg-1.3.2.tar.gz
+RUN tar xzvf libogg-1.3.2.tar.gz
+RUN cd libogg-1.3.2
+RUN ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+RUN make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN curl -O http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.4.tar.gz
+RUN tar xzvf libvorbis-1.3.4.tar.gz
+RUN cd libvorbis-1.3.4
+RUN ./configure --prefix="$HOME/ffmpeg_build" --with-ogg="$HOME/ffmpeg_build" --disable-shared
+RUN make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
+RUN cd libvpx
+RUN ./configure --prefix="$HOME/ffmpeg_build" --disable-examples  --as=yasm
+RUN PATH="$HOME/bin:$PATH" make
+RUN make install
+RUN echo
+RUN cd ~/ffmpeg_sources
+RUN curl -O http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
+RUN tar xjvf ffmpeg-snapshot.tar.bz2
+RUN cd ffmpeg
+RUN PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib -ldl" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libfdk_aac --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265
+RUN make
+RUN make install
+RUN hash -r
 
 #Download and install stable version of Nadeko
 RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer_1_4.sh | sh \
