@@ -140,3 +140,11 @@ PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/f
 make 1>/dev/null
 make install 1>/dev/null
 hash -r 1>/dev/null
+
+echo
+echo #
+echo Moving files to /usr/bin
+echo #
+echo
+
+mv ~/bin/* /usr/bin/
