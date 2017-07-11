@@ -1,5 +1,5 @@
 yum-config-manager --add-repo http://www.nasm.us/nasm.repo 1>/dev/null
-yum install autoconf automake build-essential bzip2 cmake file freetype-devel gcc gcc-c++ git libssl-dev libtool make mercurial nasm openssl pkgconfig xmlto zlib-devel -y 1>/dev/null
+yum install autoconf automake build-essential bzip2 cmake file freetype-devel gcc gcc-c++ git libtool make mercurial nasm openssl-devel openssl pkgconfig xmlto zlib-devel -y 1>/dev/null
 
 mkdir ~/ffmpeg_sources 1>/dev/null
 
