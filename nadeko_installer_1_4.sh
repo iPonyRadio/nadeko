@@ -29,9 +29,11 @@ cd "$root"
 
 echo ""
 echo "Downloading NadekoBot, please wait."
-git clone -b 1.4 --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
+curl -O https://codeload.github.com/Kwoth/NadekoBot/tar.gz/1.55.5
+mv 1.55.5 nadeko.tar.gz
+tar xvf nadeko.tar.gz
+mv NadekoBot-1.55.5/ NadekoBot/
 cd $root/NadekoBot
-git reset --hard 9d778de
 echo ""
 echo "NadekoBot downloaded."
 
