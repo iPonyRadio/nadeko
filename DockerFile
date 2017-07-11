@@ -16,7 +16,7 @@ RUN apt update -y
 RUN apt upgrade -y
 RUN apt dist-upgrade -y
 RUN apt install git -y
-RUN apt install dotnet-dev-1.0.4 ibopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux sudo youtube-dl -y
+RUN apt install dotnet-dev-1.0.4 libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux sudo youtube-dl -y
 
 #Download and install stable version of Nadeko
 RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer_1_4.sh | sh \
