@@ -7,7 +7,7 @@ WORKDIR /opt/
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt dist-upgrade -y
-RUN apt-get install software-properties-common apt-transport-https wget -y
+RUN apt-get install software-properties-common apt-transport-https wget curl -y
 RUN wget http://launchpadlibrarian.net/201330288/libicu52_52.1-8_amd64.deb
 RUN dpkg -i /opt/libicu52_52.1-8_amd64.deb
 RUN rm -rf /opt/libicu52_52.1-8_amd64.deb
