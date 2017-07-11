@@ -10,6 +10,7 @@ RUN apt dist-upgrade -y
 RUN apt-get install software-properties-common apt-transport-https -y
 RUN add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 RUN add-apt-repository ppa:nilarimogard/webupd8 -y
+RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse" -y
 RUN sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 RUN apt update -y
