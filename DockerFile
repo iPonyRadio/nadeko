@@ -4,20 +4,16 @@ MAINTAINER PixelPerfect <pixelperfectpon3@gmail.com>
 WORKDIR /opt/
 
 # Installing Dependencies
-RUN apt install sudo -y
-RUN sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
-RUN sudo apt-get install software-properties-common apt-transport-https -y
-RUN sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-RUN sudo apt update -y
-RUN sudo apt upgrade -y
-RUN sudo apt dist-upgrade -y
-RUN echo "Installing Git..."
-RUN sudo apt install git -y
-RUN echo "Installing .NET Core..."
-RUN sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
-RUN echo "Installing prerequisites..."
-RUN sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+RUN add-apt-repository ppa:jonathonf/ffmpeg-3 -y
+RUN apt-get install software-properties-common apt-transport-https -y
+RUN sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt dist-upgrade -y
+RUN apt install git -y
+RUN apt install dotnet-dev-1.0.0-preview2.1-003177 -y
+RUN apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux sudo -y
 
 #Download and install stable version of Nadeko
 RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer_1_4.sh | sh \
