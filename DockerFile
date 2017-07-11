@@ -19,7 +19,7 @@ RUN echo "Installing prerequisites..."
 RUN sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 
 #Download and install stable version of Nadeko
-RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer_1_4.sh | sh \
+RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_installer.sh | sh \
 	&& curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.5/nadeko_autorestart.sh > nadeko.sh \
 	&& chmod 755 nadeko.sh
 
