@@ -9,7 +9,7 @@ Just swap out `uirel/nadeko:1.4` for `pixelperfect/nadeko:1.5`
 
 ### To install
 
-    docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.5
+    docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.6
     
 Where `/nadeko/conf` is where you want your config files, and `/nadeko/data` is where you want your data files
 
@@ -23,7 +23,7 @@ Without monitoring: `docker start nadeko`
 
 ### To update
 
-    docker pull pixelperfect/nadeko:1.5
+    docker pull pixelperfect/nadeko:1.6
     docker stop nadeko
     dockerr rm nadeko
     docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.5

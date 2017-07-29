@@ -29,10 +29,10 @@ cd "$root"
 
 echo ""
 echo "Downloading NadekoBot, please wait."
-curl -O https://codeload.github.com/Kwoth/NadekoBot/tar.gz/1.55.7
-mv 1.55.7 nadeko.tar.gz
+curl -O https://codeload.github.com/Kwoth/NadekoBot/tar.gz/1.6
+mv 1.6 nadeko.tar.gz
 tar xvf nadeko.tar.gz
-mv NadekoBot-1.55.7/ NadekoBot/
+mv NadekoBot-1.6/ NadekoBot/
 cd $root/NadekoBot
 echo ""
 echo "NadekoBot downloaded."
