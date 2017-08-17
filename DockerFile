@@ -22,8 +22,8 @@ RUN apt install git -y
 RUN apt install dotnet-dev-1.0.4 libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux sudo youtube-dl dotnet-sharedframework-microsoft.netcore.app-1.1.2 dotnet-sharedframework-microsoft.netcore.app-1.0.5 libicu52 -y
 
 #Download and install stable version of Nadeko
-RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.6/nadeko_installer.sh | sh \
-	&& curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.6/nadeko_autorestart.sh > nadeko.sh \
+RUN curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.7/nadeko_installer.sh | sh \
+	&& curl -L https://raw.githubusercontent.com/iPonyRadio/nadeko/1.7/nadeko_autorestart.sh > nadeko.sh \
 	&& chmod 755 nadeko.sh
 
 VOLUME ["/root/nadeko"]
