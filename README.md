@@ -3,13 +3,13 @@ Nadeko is written in C# and Discord.net for more information visit https://githu
 
 Full Documentation available @ http://nadekobot.readthedocs.io/en/latest/guides/Docker%20Guide/
 
-Just swap out `uirel/nadeko:1.4` for `pixelperfect/nadeko:1.9`
+Just swap out `uirel/nadeko:1.4` for `pixelperfect/nadeko:1.10`
 
 ## tl;dr
 
 ### To install
 
-    docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.9
+    docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.10
     
 Where `/nadeko/conf` is where you want your config files, and `/nadeko/data` is where you want your data files
 
@@ -23,8 +23,8 @@ Without monitoring: `docker start nadeko`
 
 ### To update
 
-    docker pull pixelperfect/nadeko:1.9
+    docker pull pixelperfect/nadeko:1.10
     docker stop nadeko
     dockerr rm nadeko
-    docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.9
+    docker create --name=nadeko -v /nadeko/conf/:/root/nadeko -v /nadeko/data:/opt/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data pixelperfect/nadeko:1.10
     
